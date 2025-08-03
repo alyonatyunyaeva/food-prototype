@@ -1,0 +1,257 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.page.full-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header.sticky, .footer.sticky {
+  background: white;
+  padding: 12px;
+  z-index: 10;
+}
+
+.header.sticky {
+  flex-shrink: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.footer.sticky {
+  flex-shrink: 0;
+  border-top: 1px solid #ddd;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dish-card {
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.dish-card.selected {
+  border-color: #008000;
+  background: #eaffea;
+}
+
+.dish-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.dish-info {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.checkbox {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #0a0;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accent {
+  color: #a00;
+  font-weight: bold;
+}
+
+
+/* Центровка текста */
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Анимация заголовка */
+.success-message.animate {
+  font-size: 26px;
+  font-weight: bold;
+  animation: fadeScale 0.8s ease-in-out;
+  color: #2d7f5e;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Кнопка — стили и загрузка */
+.accent-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 24px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accent-btn:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.accent-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/*.accent-btn.loading {*/
+/*  opacity: 0.8;*/
+/*  pointer-events: none;*/
+/*  position: relative;*/
+/*}*/
+
+/*!* Лоадер *!*/
+/*.spinner {*/
+/*  width: 20px;*/
+/*  height: 20px;*/
+/*  border: 3px solid rgba(255, 255, 255, 0.4);*/
+/*  border-top: 3px solid white;*/
+/*  border-radius: 50%;*/
+/*  animation: spin 0.8s linear infinite;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+/*@keyframes spin {*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+
+.accent-btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Grid of dishes */
+.dish-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Dish card styling */
+.dish-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.dish-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.dish-card.selected {
+  border: 2px solid #2d7f5e;
+  background: #f0fff5;
+}
+
+/* Dish image */
+.dish-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Dish text block */
+.dish-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.dish-info h4 {
+  font-size: 14px;
+  margin: 6px 0 2px;
+}
+
+.dish-info p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* Checkbox style */
+.checkbox {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: #2d7f5e;
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
